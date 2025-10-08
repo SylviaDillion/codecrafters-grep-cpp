@@ -14,6 +14,14 @@ bool match_pattern(const std::string& input_line, const std::string& pattern) {
         }
         return false;
     }
+    else if(pattern == "\\w"){
+        for(char c:input_line){
+            if(std::isalpha(c) || isdigit(c) || c == '_'){
+                return true;
+            }
+        }
+        return false;
+    }
     else {
         throw std::runtime_error("Unhandled pattern " + pattern);
     }
